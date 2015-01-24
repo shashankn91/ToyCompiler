@@ -1,0 +1,272 @@
+term
+<program>
+first TK_FUNID TK_MAIN 
+follow $
+
+term
+<mainFunction>
+first TK_MAIN 
+follow $
+
+term
+<otherFunctions>
+first eps TK_FUNID  
+follow TK_MAIN
+
+term
+<function>
+first TK_FUNID 
+follow TK_MAIN TK_FUNID
+
+term
+<input_par>
+first TK_INPUT 
+follow TK_OUTPUT TK_SEM
+
+term
+<output_par>
+first eps TK_OUTPUT  
+follow TK_SEM 
+
+term
+<parameter_list>
+first TK_INT TK_REAL TK_RECORD 
+follow TK_SQR
+
+term
+<dataType>
+first TK_INT TK_REAL TK_RECORD 
+follow TK_ID TK_COLON
+
+term
+<primitiveDatatype>
+first TK_INT TK_REAL 
+follow TK_ID TK_COLON
+
+term
+<constructedDatatype>
+first TK_RECORD 
+follow TK_ID TK_COLON
+
+term
+<remaining_list>
+first eps TK_COMMA  
+follow TK_SQR
+
+term
+<stmts>
+first TK_RECORD TK_TYPE TK_ID TK_RECORDID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN 
+follow TK_END
+
+term
+<typeDefinitions>
+first eps TK_RECORD  
+follow TK_TYPE TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN 
+
+term
+<typeDefinition>
+first TK_RECORD 
+follow TK_RECORD TK_TYPE TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN
+
+term
+<fieldDefinitions>
+first TK_TYPE 
+follow TK_ENDRECORD
+
+term
+<fieldDefinition>
+first TK_TYPE 
+follow TK_TYPE TK_ENDRECORD 
+
+term
+<moreFields>
+first eps TK_TYPE 
+follow TK_ENDRECORD 
+
+term
+<declarations>
+first eps TK_TYPE  
+follow TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN  
+
+term
+<declaration>
+first TK_TYPE 
+follow TK_TYPE TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN
+
+term
+<global_or_not>
+first eps TK_COLON  
+follow TK_SEM
+
+term
+<otherStmts>
+first eps TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL 
+follow TK_RETURN TK_ENDWHILE TK_ENDIF TK_ELSE 
+
+term
+<stmt>
+first TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL 
+follow TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN TK_ENDWHILE TK_ENDIF TK_ELSE 
+
+term
+<assignmentStmt>
+first TK_ID 
+follow TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN TK_ENDWHILE TK_ENDIF TK_ELSE 
+
+term
+<SingleOrRecId>
+first TK_ID  
+follow TK_ASSIGNOP TK_CL 
+
+term
+<iterativeStmt>
+first TK_WHILE 
+follow TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN TK_ENDWHILE TK_ENDIF TK_ELSE 
+
+term
+<conditionalStmt>
+first TK_IF 
+follow TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN TK_ENDWHILE TK_ENDIF TK_ELSE 
+
+term
+<ioStmt>
+first TK_READ TK_WRITE 
+follow TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN TK_ENDWHILE TK_ENDIF TK_ELSE 
+
+term
+<funCallStmt>
+first TK_SQL TK_CALL 
+follow TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN TK_ENDWHILE TK_ENDIF TK_ELSE
+
+term
+<outputParameters>
+first eps TK_SQL  
+follow TK_CALL 
+
+term
+<inputParameters>
+first TK_SQL 
+follow TK_SEM 
+
+term
+<elsePart>
+first TK_ELSE TK_ENDIF 
+follow TK_ID TK_WHILE TK_IF TK_READ TK_WRITE TK_SQL TK_CALL TK_RETURN TK_ENDWHILE TK_ENDIF TK_ELSE  
+
+term
+<allVar>
+first TK_ID TK_NUM TK_RNUM TK_RECORDID 
+follow TK_CL
+
+term
+<var>
+first TK_ID TK_NUM TK_RNUM 
+follow TK_CL TK_LT TK_LE TK_EQ TK_GT TK_GE TK_NE 
+
+term
+<arithmeticExpression>
+first TK_OP TK_ID TK_NUM TK_RNUM TK_RECORDID 
+follow TK_SEM TK_CL 
+
+term
+<term>
+first TK_OP TK_ID TK_NUM TK_RNUM TK_RECORDID 
+follow TK_PLUS TK_MINUS TK_SEM TK_CL
+
+term
+<factor>
+first TK_OP TK_ID TK_NUM TK_RNUM TK_RECORDID 
+follow TK_MUL TK_DIV TK_PLUS TK_MINUS TK_SEM TK_CL 
+
+term
+<all>
+first TK_ID TK_NUM TK_RNUM TK_RECORDID 
+follow TK_MUL TK_DIV TK_PLUS TK_MINUS TK_SEM TK_CL 
+
+term
+<expPrime>
+first eps TK_PLUS TK_MINUS  
+follow TK_SEM TK_CL
+
+term
+<lowPrecedenceOperators>
+first TK_PLUS TK_MINUS 
+follow TK_OP TK_ID TK_NUM TK_RNUM TK_RECORDID
+
+term
+<termPrime>
+first eps TK_MUL TK_DIV 
+follow TK_PLUS TK_MINUS TK_SEM TK_CL 
+
+term
+<highPrecedenceOperators>
+first TK_MUL TK_DIV 
+follow TK_OP TK_ID TK_NUM TK_RNUM TK_RECORDID
+
+term
+<temp>
+first eps TK_DOT  
+follow TK_MUL TK_DIV TK_PLUS TK_MINUS TK_SEM TK_CL  
+
+term
+<booleanExpression>
+first TK_OP TK_NOT TK_ID TK_NUM TK_RNUM 
+follow TK_CL
+
+term
+<logicalOp>
+first TK_AND TK_OR 
+follow TK_OP
+
+term
+<relationalOp>
+first TK_LT TK_LE TK_EQ TK_GT TK_GE TK_NE 
+follow TK_ID TK_NUM TK_RNUM 
+
+term
+<returnStmt>
+first TK_RETURN 
+follow TK_END 
+
+term
+<optionalReturn>
+first eps TK_SQL  
+follow TK_SEM
+
+term
+<idList>
+first TK_ID 
+follow TK_SQR 
+
+term
+<idList1>
+first TK_ID 
+follow TK_SQR 
+
+term
+<id_or_record>
+first TK_ID
+follow TK_COMMA TK_SQR
+
+term
+<Rec1>
+first eps TK_DOT
+follow TK_COMMA TK_SQR
+
+term
+<more_ids>
+first eps TK_COMMA  
+follow TK_SQR
+
+term
+<more_ids1>
+first eps TK_COMMA  
+follow TK_SQR
+
+term
+<Rec>
+first eps TK_DOT 
+follow TK_ASSIGNOP TK_CL
+
+term
+

@@ -1,0 +1,10 @@
+_main
+	type int :b3;
+	type int : c2;
+	c2<--- 20;
+	b3 <--- c2*10;
+		return;
+end
+
+
+

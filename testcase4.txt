@@ -1,0 +1,12 @@
+
+_main
+	type int :b3;
+	type real :d3;
+	type int : b5b567 : global;
+	
+	
+	b5b567 <--- 1;
+	d3 <--- d3 + 1.00;
+	
+	return;
+end

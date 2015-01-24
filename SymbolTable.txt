@@ -1,0 +1,11 @@
+
+
+              Lexeme                 Type                Scope               Offset
+
+              d5cc34                  int                _sumN                    0
+                  d3                 real                _sumN                    2
+              b5b567                  int               global                    -
+                  b3                  int                _sumN                    6
+                c3bd                 real                _sumN                    8
+              c4bd56                 real                _main                    0
+                  c2                  int                _main                    4
